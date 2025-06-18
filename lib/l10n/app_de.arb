@@ -1,0 +1,11 @@
+{
+  "appTitle": "EXHALE",
+  "appSubtitle": "Sprich aus, was dich bewegt, und lass es los",
+  "tapToStartRecording": "Tippen, um die Aufnahme zu starten",
+  "tapToStopRecording": "Tippen, um die Aufnahme zu beenden",
+  "readyToListen": "Bereit zum Anhören",
+  "listen": "Anhören",
+  "webModeNote": "Hinweis: Die volle Audiofunktionalität ist nur auf mobilen Geräten verfügbar. Dies ist ein Demo-Modus.",
+  "playing": "Playing...",
+  "paused": "Paused"
+}

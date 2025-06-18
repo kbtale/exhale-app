@@ -1,0 +1,11 @@
+{
+  "appTitle": "EXHALE",
+  "appSubtitle": "说出你的想法，让它去吧",
+  "tapToStartRecording": "点击开始录音",
+  "tapToStopRecording": "点击停止录音",
+  "readyToListen": "准备好收听",
+  "listen": "收听",
+  "webModeNote": "注意：完整的音频功能仅在移动设备上可用。这是一个演示模式。",
+  "playing": "Playing...",
+  "paused": "Paused"
+}

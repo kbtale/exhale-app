@@ -1,0 +1,11 @@
+{
+  "appTitle": "EXHALE",
+  "appSubtitle": "Expresa tu mente, déjalo ir",
+  "tapToStartRecording": "Toca para comenzar a grabar",
+  "tapToStopRecording": "Toca para detener la grabación",
+  "readyToListen": "Listo para escuchar",
+  "listen": "Escuchar",
+  "webModeNote": "Nota: La funcionalidad de audio completa solo está disponible en dispositivos móviles. Este es un modo de demostración.",
+  "playing": "Playing...",
+  "paused": "Paused"
+}

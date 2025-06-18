@@ -1,0 +1,11 @@
+{
+  "appTitle": "EXHALE",
+  "appSubtitle": "Säg vad du tycker, släpp det",
+  "tapToStartRecording": "Tryck för att starta inspelningen",
+  "tapToStopRecording": "Tryck för att stoppa inspelningen",
+  "readyToListen": "Redo att lyssna",
+  "listen": "Lyssna",
+  "webModeNote": "Obs: Full ljudfunktionalitet är endast tillgänglig på mobila enheter. Detta är ett demoläge.",
+  "playing": "Playing...",
+  "paused": "Paused"
+}

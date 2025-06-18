@@ -1,0 +1,38 @@
+{
+  "appTitle": "EXHALE",
+  "@appTitle": {
+    "description": "The title of the application"
+  },
+  "appSubtitle": "Speak your mind, let it go",
+  "@appSubtitle": {
+    "description": "The subtitle of the application"
+  },
+  "tapToStartRecording": "Tap to start recording",
+  "@tapToStartRecording": {
+    "description": "Instruction to start recording"
+  },
+  "tapToStopRecording": "Tap to stop recording",
+  "@tapToStopRecording": {
+    "description": "Instruction to stop recording"
+  },
+  "readyToListen": "Ready to listen",
+  "@readyToListen": {
+    "description": "Indicates that a recording is ready to be played"
+  },
+  "listen": "Listen",
+  "@listen": {
+    "description": "Button text to play the recording"
+  },
+  "webModeNote": "Note: Full audio functionality is only available on mobile devices. This is a demo mode.",
+  "@webModeNote": {
+    "description": "Note displayed on web platform about limited functionality"
+  },
+  "playing": "Playing...",
+  "@playing": {
+    "description": "Indicates that audio is currently playing"
+  },
+  "paused": "Paused",
+  "@paused": {
+    "description": "Indicates that audio playback is paused"
+  }
+}

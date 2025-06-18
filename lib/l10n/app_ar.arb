@@ -1,0 +1,11 @@
+{
+  "appTitle": "EXHALE",
+  "appSubtitle": "عبّر عن نفسك، ثم دعه يذهب",
+  "tapToStartRecording": "انقر لبدء التسجيل",
+  "tapToStopRecording": "انقر لإيقاف التسجيل",
+  "readyToListen": "جاهز للاستماع",
+  "listen": "استمع",
+  "webModeNote": "ملاحظة: تتوفر وظائف الصوت الكاملة على الأجهزة المحمولة فقط. هذا وضع تجريبي.",
+  "playing": "Playing...",
+  "paused": "Paused"
+}

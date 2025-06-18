@@ -1,0 +1,11 @@
+{
+  "appTitle": "EXHALE",
+  "appSubtitle": "Exprimez-vous, laissez-le s'en aller",
+  "tapToStartRecording": "Appuyez pour démarrer l'enregistrement",
+  "tapToStopRecording": "Appuyez pour arrêter l'enregistrement",
+  "readyToListen": "Prêt à écouter",
+  "listen": "Écouter",
+  "webModeNote": "Remarque : La fonctionnalité audio complète n'est disponible que sur les appareils mobiles. Ceci est un mode de démonstration.",
+  "playing": "Playing...",
+  "paused": "Paused"
+}

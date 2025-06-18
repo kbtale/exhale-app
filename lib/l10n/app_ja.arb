@@ -1,0 +1,11 @@
+{
+  "appTitle": "EXHALE",
+  "appSubtitle": "心の中を話して、手放す",
+  "tapToStartRecording": "タップして録音を開始",
+  "tapToStopRecording": "タップして録音を停止",
+  "readyToListen": "再生準備完了",
+  "listen": "再生",
+  "webModeNote": "注意：完全な音声機能はモバイルデバイスでのみ利用可能です。これはデモモードです。",
+  "playing": "Playing...",
+  "paused": "Paused"
+}

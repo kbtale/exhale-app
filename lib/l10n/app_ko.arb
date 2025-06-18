@@ -1,0 +1,11 @@
+{
+  "appTitle": "EXHALE",
+  "appSubtitle": "마음을 털어놓고, 놓아주세요",
+  "tapToStartRecording": "탭하여 녹음 시작",
+  "tapToStopRecording": "탭하여 녹음 중지",
+  "readyToListen": "들을 준비가 되었습니다",
+  "listen": "듣기",
+  "webModeNote": "참고: 전체 오디오 기능은 모바일 장치에서만 사용할 수 있습니다. 이것은 데모 모드입니다.",
+  "playing": "Playing...",
+  "paused": "Paused"
+}
