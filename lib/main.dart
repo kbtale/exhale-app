@@ -372,20 +372,20 @@ class _ExhaleScreenState extends State<ExhaleScreen> with SingleTickerProviderSt
   }
 
   Widget _buildWaveAnimation() {
-    const int barCount = 12;
-    const double barWidth = 6.0;
-    const double barSpacing = 4.0;
+    const int barCount = 8;
+    const double barWidth = 4.0;
+    const double barSpacing = 6.0;
     
     return AnimatedBuilder(
       animation: _wavesAnimationController,
       builder: (context, child) {
         return Row(
           mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.end,
           children: List.generate(barCount, (index) {
-            double delay = index * 0.1;
+            double delay = index * 0.15;
             double animationValue = (_wavesAnimationController.value + delay) % 1.0;
-            double height = 15 + (sin(animationValue * 2 * pi) * 25);
+            double height = 12 + (sin(animationValue * 2 * pi) * 15);
             
             // Calculate if this bar should be "filled" based on progress
             double barProgress = index / (barCount - 1);
@@ -396,12 +396,8 @@ class _ExhaleScreenState extends State<ExhaleScreen> with SingleTickerProviderSt
               height: height,
               margin: const EdgeInsets.symmetric(horizontal: barSpacing / 2),
               decoration: BoxDecoration(
-                color: isFilled ? const Color(0xFF6A35FF) : Colors.white.withOpacity(0.3),
-                borderRadius: BorderRadius.circular(3),
-                border: Border.all(
-                  color: Colors.white.withOpacity(0.2),
-                  width: 0.5,
-                ),
+                color: isFilled ? const Color(0xFF6A35FF) : Colors.white.withOpacity(0.4),
+                borderRadius: BorderRadius.circular(2),
               ),
             );
           }),
@@ -422,7 +418,7 @@ class _ExhaleScreenState extends State<ExhaleScreen> with SingleTickerProviderSt
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Spacer(flex: 1),
+                  const Spacer(flex: 2),
                   
                   // App title
                   Text(
@@ -464,7 +460,7 @@ class _ExhaleScreenState extends State<ExhaleScreen> with SingleTickerProviderSt
                       ),
                     ),
                   
-                  const Spacer(flex: 2),
+                  const Spacer(flex: 3),
                   
                   // Mic button
                   GestureDetector(
@@ -517,70 +513,76 @@ class _ExhaleScreenState extends State<ExhaleScreen> with SingleTickerProviderSt
                     ),
                   ),
                   
-                  // Play button - only shown when we have a recording
-                  if (_hasRecording && !_isPlaying)
-                    Padding(
-                      padding: const EdgeInsets.only(top: 24.0),
-                      child: ElevatedButton.icon(
-                        onPressed: _startPlayback,
-                        icon: const Icon(Icons.play_arrow),
-                        label: Text(AppLocalizations.of(context)!.listen),
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: const Color(0xFF6A35FF),
-                          foregroundColor: Colors.white,
-                          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                  // Fixed space for play button/playback controls - always reserve this space
+                  Padding(
+                    padding: const EdgeInsets.only(top: 24.0),
+                    child: SizedBox(
+                      height: 64, // Fixed height to prevent layout shifts
+                      child: AnimatedOpacity(
+                        duration: const Duration(milliseconds: 200),
+                        opacity: _hasRecording && !_isPlaying ? 1.0 : 0.0,
+                        child: ElevatedButton.icon(
+                          onPressed: _hasRecording && !_isPlaying ? _startPlayback : null,
+                          icon: const Icon(Icons.play_arrow),
+                          label: Text(AppLocalizations.of(context)!.listen),
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: const Color(0xFF6A35FF),
+                            foregroundColor: Colors.white,
+                            padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                          ),
                         ),
                       ),
                     ),
+                  ),
 
-                  // Playback controls - shown only when playing
-                  if (_isPlaying)
-                    Padding(
-                      padding: const EdgeInsets.only(top: 24.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          IconButton(
-                            icon: Icon(_isPaused ? Icons.play_arrow : Icons.pause),
-                            iconSize: 40,
-                            color: Colors.white,
-                            onPressed: _isPaused ? _resumePlayback : _pausePlayback,
-                          ),
-                          const SizedBox(width: 20),
-                          IconButton(
-                            icon: const Icon(Icons.stop),
-                            iconSize: 40,
-                            color: Colors.white,
-                            onPressed: () => _stopPlayback(),
-                          ),
-                        ],
+                  // Fixed space for playback controls - always reserve this space
+                  Padding(
+                    padding: const EdgeInsets.only(top: 0.0),
+                    child: SizedBox(
+                      height: 64, // Fixed height to prevent layout shifts
+                      child: AnimatedOpacity(
+                        duration: const Duration(milliseconds: 200),
+                        opacity: _isPlaying ? 1.0 : 0.0,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            IconButton(
+                              icon: Icon(_isPaused ? Icons.play_arrow : Icons.pause),
+                              iconSize: 40,
+                              color: Colors.white,
+                              onPressed: _isPlaying ? (_isPaused ? _resumePlayback : _pausePlayback) : null,
+                            ),
+                            const SizedBox(width: 20),
+                            IconButton(
+                              icon: const Icon(Icons.stop),
+                              iconSize: 40,
+                              color: Colors.white,
+                              onPressed: _isPlaying ? () => _stopPlayback() : null,
+                            ),
+                          ],
+                        ),
                       ),
                     ),
-                  
-                  const Spacer(flex: 1),
-                ],
-              ),
-            ),
-            
-            // Wave animation positioned between controls and bottom
-            if (_showWavesAnimation)
-              Positioned(
-                bottom: 120,
-                left: 0,
-                right: 0,
-                child: Container(
-                  margin: const EdgeInsets.symmetric(horizontal: 40),
-                  child: Center(
+                  ),
+
+                  // Fixed space for wave animation - always reserve this space
+                  Padding(
+                    padding: const EdgeInsets.only(top: 32.0, bottom: 16.0),
                     child: SizedBox(
-                      width: double.infinity,
-                      height: 80,
-                      child: Center(
+                      height: 60, // Fixed height to prevent layout shifts
+                      child: AnimatedOpacity(
+                        duration: const Duration(milliseconds: 200),
+                        opacity: _showWavesAnimation ? 1.0 : 0.0,
                         child: _buildWaveAnimation(),
                       ),
                     ),
                   ),
-                ),
+                  
+                  const Spacer(flex: 2),
+                ],
               ),
+            ),
+
 
           ],
         ),
