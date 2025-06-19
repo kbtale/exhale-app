@@ -1,63 +1,136 @@
 # Exhale
 
-A voice venting app that lets you speak your mind and let it go. This Flutter application provides a simple, elegant interface for recording your thoughts, playing them back once, and then watching them disappear in a satisfying animation.
+A minimalist voice recording application designed for emotional release and mindfulness. Exhale provides a simple interface for recording personal thoughts, playing them back once, and then automatically discarding them.
+
+## Purpose
+
+Exhale serves as a digital space for verbal expression without permanent storage. Users can voice their thoughts, concerns, or emotions, listen to their recording once, and then watch it disappear. This approach encourages the therapeutic act of verbal expression while maintaining complete privacy.
+
+## Current Status
+
+**Release Version: 1.1.0**
+
+The application is currently in release and available for download. All core functionality has been implemented and tested across multiple platforms.
 
 ## Features
 
-- **Simple Single-Screen UI**: Dark theme with a prominent purple microphone button
-- **Press-and-Hold Recording**: Intuitive gesture to start and stop recording
-- **Auto-Playback**: Automatically plays your recording once when you release the button
-- **Self-Destructing Recordings**: Recordings are deleted immediately after playback
-- **Satisfying Animations**: Button pulse effect and a "poof" animation when your recording vanishes
+### Audio Recording
+- High-quality voice recording using advanced audio codecs
+- Visual feedback during recording with button state changes
+- Tap-to-start, tap-to-stop recording interface
 
-## Getting Started
+### Playback Visualization
+- Real-time wave animation during audio playback
+- Progress tracking with 8 animated bars that fill as audio plays
+- Playback controls including pause, resume, and stop functionality
 
-### Prerequisites
+### User Interface
+- Single-screen design with consistent element positioning
+- No layout shifts during state changes
+- Smooth fade transitions between interface states
+- Dark theme with purple accent colors
+- Responsive design across different screen sizes
 
-- Flutter SDK (latest version recommended)
-- Android Studio / Xcode for mobile deployment
-- Physical device recommended for testing audio features
+### Privacy and Security
+- Temporary file storage only
+- Automatic deletion of recordings after playback
+- No data transmission or cloud storage
+- Local audio processing
 
-### Installation
+### Multilingual Support
+- Full localization in 13 languages
+- Automatic language detection based on system settings
+- Support for English, Spanish, French, German, Italian, Portuguese, Japanese, Chinese, Russian, Arabic, Korean, Dutch, and Swedish
 
-1. Clone this repository
-2. Install dependencies:
-   ```
-   flutter pub get
-   ```
-3. Run the app:
-   ```
-   flutter run
-   ```
+### Platform Compatibility
+- Native Android application with APK distribution
+- iOS compatibility
+- Web browser support with visual-only mode
+- Desktop support for Windows, macOS, and Linux
 
-## Testing
+## Download
 
-### On a Physical Device
+### Android APK
+The latest release (v1.1.0) is available for download:
 
-1. Connect your device via USB and enable USB debugging
-2. Run the app with:
-   ```
-   flutter run
-   ```
+- [Download from GitHub Releases](https://github.com/kbtale/exhale-app/releases/latest)
+- File size: approximately 40MB
+- Minimum Android version: 5.0 (API 21)
+
+## Installation and Usage
+
+### For End Users
+1. Download the APK file from the GitHub releases page
+2. Install the application on your Android device
 3. Grant microphone permissions when prompted
-4. Press and hold the purple mic button to start recording
-5. Release to stop recording and hear your playback
-6. Watch your recording disappear with the "poof" animation
+4. Tap the microphone button to begin recording
+5. Tap again to stop recording
+6. Use the playback controls to listen to your recording
+7. The recording is automatically deleted when playback ends
 
-### On a Browser
+### For Developers
+```bash
+# Clone the repository
+git clone https://github.com/kbtale/exhale-app.git
+cd exhale-app
 
-1. Run the app with:
-   ```
-   flutter run -d chrome
-   ```
-2. Note: Browser testing may have limited audio functionality due to browser security restrictions. For the best experience, test on a physical device.
+# Install dependencies
+flutter pub get
 
-## Permissions
+# Run in development mode
+flutter run
 
-The app requires microphone permission which is requested at runtime using the `permission_handler` package.
+# Build release APK
+flutter build apk --release
+```
 
-## Technical Details
+## Technical Implementation
 
-- **Audio Handling**: Uses `flutter_sound` for recording and playback
-- **Animations**: Combines `AnimatedContainer` for button scaling and Lottie for the "poof" effect
-- **File Management**: Temporary recordings stored in the device's temp directory and deleted after playback
+### Audio Processing
+- **flutter_sound**: Professional-grade audio recording and playback
+- **permission_handler**: Runtime permission management
+- AAC audio codec for optimal quality and compression
+
+### User Interface
+- **Material Design 3**: Modern Flutter UI components
+- **Custom animations**: Sine wave calculations for audio visualization
+- **Fixed layout system**: Prevents interface shifting during state changes
+- **AnimatedOpacity**: Smooth element transitions
+
+### File Management
+- **path_provider**: Cross-platform temporary file access
+- Platform-specific implementations for web and mobile environments
+- Automatic cleanup of temporary audio files
+
+### Internationalization
+- **flutter_localizations**: Built-in Flutter internationalization
+- ARB (Application Resource Bundle) files for all supported languages
+- Automatic locale detection and switching
+
+## Architecture
+
+```
+lib/
+├── main.dart           # Application logic and user interface
+├── file_utils.dart     # Cross-platform file operations
+├── web_file_utils.dart # Web-specific file handling
+└── l10n/              # Localization resources
+    ├── app_en.arb     # English translations
+    ├── app_es.arb     # Spanish translations
+    └── [other languages]
+```
+
+## Development Requirements
+
+- Flutter SDK 3.0 or higher
+- Android Studio or Xcode for mobile development
+- Physical device recommended for audio testing
+- Microphone permissions for full functionality
+
+## License
+
+This project is open source and available under the MIT License.
+
+## Repository
+
+Source code and releases are maintained at: https://github.com/kbtale/exhale-app
