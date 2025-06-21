@@ -1,4 +1,4 @@
-package com.example.exhale
+package com.mindfultools.exhale
 
 import io.flutter.embedding.android.FlutterActivity
 

@@ -385,7 +385,7 @@ class _ExhaleScreenState extends State<ExhaleScreen> with SingleTickerProviderSt
           children: List.generate(barCount, (index) {
             double delay = index * 0.15;
             double animationValue = (_wavesAnimationController.value + delay) % 1.0;
-            double height = 12 + (sin(animationValue * 2 * pi) * 15);
+            double height = 12 + (sin(animationValue * 2 * pi).abs() * 15);
             
             // Calculate if this bar should be "filled" based on progress
             double barProgress = index / (barCount - 1);
@@ -401,6 +401,102 @@ class _ExhaleScreenState extends State<ExhaleScreen> with SingleTickerProviderSt
               ),
             );
           }),
+        );
+      },
+    );
+  }
+
+  void _showAboutDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          backgroundColor: const Color(0xFF1E1E1E),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(16),
+          ),
+          title: Row(
+            children: [
+              const Icon(
+                Icons.info_outline,
+                color: Color(0xFF6A35FF),
+                size: 28,
+              ),
+              const SizedBox(width: 12),
+              Text(
+                'About Exhale',
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ],
+          ),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Text(
+                'Version 1.1.0',
+                style: TextStyle(
+                  color: Colors.white70,
+                  fontSize: 14,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+              const SizedBox(height: 16),
+              const Text(
+                'Created by Carlos B.',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+              const SizedBox(height: 16),
+              const Text(
+                'Exhale is a minimalist voice recording app designed for emotional release and mindfulness. Record your thoughts, listen once, and let them disappear.',
+                style: TextStyle(
+                  color: Colors.white70,
+                  fontSize: 14,
+                  height: 1.4,
+                ),
+              ),
+              const SizedBox(height: 16),
+              Container(
+                padding: const EdgeInsets.all(12),
+                decoration: BoxDecoration(
+                  color: const Color(0xFF6A35FF).withOpacity(0.1),
+                  borderRadius: BorderRadius.circular(8),
+                  border: Border.all(
+                    color: const Color(0xFF6A35FF).withOpacity(0.3),
+                  ),
+                ),
+                child: const Text(
+                  'Privacy First: All recordings are processed locally and automatically deleted after playback. No data is collected or transmitted.',
+                  style: TextStyle(
+                    color: Color(0xFF6A35FF),
+                    fontSize: 12,
+                    height: 1.3,
+                  ),
+                ),
+              ),
+            ],
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.of(context).pop(),
+              child: const Text(
+                'Close',
+                style: TextStyle(
+                  color: Color(0xFF6A35FF),
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+            ),
+          ],
         );
       },
     );
@@ -583,6 +679,19 @@ class _ExhaleScreenState extends State<ExhaleScreen> with SingleTickerProviderSt
               ),
             ),
 
+            // Info button - positioned at top right
+            Positioned(
+              top: 16,
+              right: 16,
+              child: IconButton(
+                icon: Icon(
+                  Icons.info_outline,
+                  color: Colors.white.withOpacity(0.6),
+                  size: 24,
+                ),
+                onPressed: () => _showAboutDialog(context),
+              ),
+            ),
 
           ],
         ),
