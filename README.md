@@ -2,6 +2,8 @@
 
 A minimalist voice recording application designed for emotional release and mindfulness. Exhale provides a simple interface for recording personal thoughts, playing them back once, and then automatically discarding them.
 
+![photo_2025-12-27_17-09-35](https://github.com/user-attachments/assets/14c3a4bc-5d94-4190-83c2-b2b351e7657d)
+
 ## Purpose
 
 Exhale serves as a digital space for verbal expression without permanent storage. Users can voice their thoughts, concerns, or emotions, listen to their recording once, and then watch it disappear. This approach encourages the therapeutic act of verbal expression while maintaining complete privacy.
