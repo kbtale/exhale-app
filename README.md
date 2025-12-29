@@ -1,8 +1,18 @@
 # Exhale
 
-A minimalist voice recording application designed for emotional release and mindfulness. Exhale provides a simple interface for recording personal thoughts, playing them back once, and then automatically discarding them.
+<p>
+  <img src="https://github.com/user-attachments/assets/14c3a4bc-5d94-4190-83c2-b2b351e7657d" align="left" width="220" style="margin-right: 20px" alt="Exhale App Screenshot" />
+  A minimalist voice recording application designed for emotional release and mindfulness. Exhale provides a simple interface for recording personal thoughts, playing them back once, and then automatically discarding them.
+  <br><br>
+  <img src="https://img.shields.io/badge/Flutter-3.0+-02569B?logo=flutter&logoColor=white" alt="Flutter" />
+  <img src="https://img.shields.io/badge/Dart-3.0+-0175C2?logo=dart&logoColor=white" alt="Dart" />
+  <img src="https://img.shields.io/badge/Platform-Android-3DDC84?logo=android&logoColor=white" alt="Platform" />
+  <img src="https://img.shields.io/badge/License-MIT-purple" alt="License" />
+</p>
 
-![photo_2025-12-27_17-09-35](https://github.com/user-attachments/assets/14c3a4bc-5d94-4190-83c2-b2b351e7657d)
+<br clear="left"/>
+
+<hr>
 
 ## Purpose
 
@@ -132,7 +142,3 @@ lib/
 ## License
 
 This project is open source and available under the MIT License.
-
-## Repository
-
-Source code and releases are maintained at: https://github.com/kbtale/exhale-app
