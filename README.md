@@ -12,8 +12,6 @@
 
 <br clear="left"/>
 
-<hr>
-
 ## Purpose
 
 Exhale serves as a digital space for verbal expression without permanent storage. Users can voice their thoughts, concerns, or emotions, listen to their recording once, and then watch it disappear. This approach encourages the therapeutic act of verbal expression while maintaining complete privacy.
